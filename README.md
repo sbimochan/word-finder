@@ -15,8 +15,8 @@ A CLI application that finds word from given letters.
 `$ python main.py`
 
 ## Usage
-### Add letters separated by space
-`a t p a r`
+### Add letters without space
+`atpar`
 
 ### Add size(Optional)
 `4`
