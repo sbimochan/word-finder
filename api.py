@@ -14,7 +14,11 @@ def get_inputs():
 
     letters = request.json['letters'].strip()
     size = request.json['size']
-    return get_permutation(letters, int(size))
+    if not size:
+        size = len(letters)
+    else:
+        size = int(size)
+    return get_permutation(letters, size)
 
 
 def get_permutation(letter_list, beautiful_size):
