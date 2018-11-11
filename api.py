@@ -5,8 +5,11 @@ from flask import Flask,jsonify,request
 app = Flask(__name__)
 language = enchant.Dict("en_US")
 
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def get_inputs():
+    if request.method == 'GET':
+        return "Hi! Thank you for hitting me. Please try hitting using POST method with args letters and size."
+    
     letters = request.json['letters'].strip()
     size = request.json['size']
     result = get_permutation(letters, size)
