@@ -1,19 +1,20 @@
 import enchant
 from itertools import permutations
+from flask_cors import CORS
 from flask import Flask,jsonify,request
 
 app = Flask(__name__)
+CORS(app)
 language = enchant.Dict("en_US")
 
 @app.route('/', methods=['GET', 'POST'])
 def get_inputs():
     if request.method == 'GET':
         return "Hi! Thank you for hitting me. Please try hitting using POST method with args letters and size."
-    
+
     letters = request.json['letters'].strip()
     size = request.json['size']
-    result = get_permutation(letters, size)
-    return result
+    return get_permutation(letters, int(size))
 
 
 def get_permutation(letter_list, beautiful_size):
@@ -39,25 +40,6 @@ def permutation_processor(permutation, required_substraction):
 def check_words(word, word_list):
     if (language.check(word)):
         word_list.append(word)
-
-def get_letters():
-    beautiful_letters = input("Gimme those letters without space. Press return when finished. \n")
-    trimmed_beautiful_letters = beautiful_letters.strip()
-    splitted_letters = list(trimmed_beautiful_letters)
-
-    return splitted_letters
-
-def get_size(splitted_letters):
-    beautiful_size = input("What length of word do you need? (Optional) \n")
-    if beautiful_size:
-        try:
-            beautiful_size = int(beautiful_size)
-        except ValueError:
-            print("Not a valid number 😟")
-    else:
-        beautiful_size = len(splitted_letters)
-
-    return beautiful_size
 
 if __name__ == "__main__":
     app.run()
