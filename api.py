@@ -21,20 +21,15 @@ def get_inputs():
     return get_permutation(letters, size)
 
 
-def get_permutation(letter_list, beautiful_size):
-    permutation = permutations(letter_list)
-    required_substraction = len(letter_list) - beautiful_size
-    return permutation_processor(permutation, required_substraction)
+def get_permutation(letter_list, length=None):
+    permutation = permutations(letter_list, length)
+    return permutation_processor(permutation)
 
-def permutation_processor(permutation, required_substraction):
+def permutation_processor(permutation):
     word_list = []
     for i in list(permutation):
         joined_word = "".join(i)
-        if required_substraction > 0:
-            required_word = joined_word[:-required_substraction]
-            check_words(required_word, word_list)
-        else:
-            check_words(joined_word, word_list)
+        check_words(joined_word, word_list)
     response = {
         "msg": "Here are the results. Bingo!",
         "result": word_list
