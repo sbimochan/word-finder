@@ -3,21 +3,15 @@ from itertools import permutations
 
 language = enchant.Dict("en_US")
 
-def get_permutation(letter_list, beautiful_size):
-    permutation = permutations(letter_list)
-    required_substraction = len(letter_list) - beautiful_size
+def get_permutation(letter_list, length=None):
+    permutation = permutations(letter_list, length)
     print("Here are the results. Bingo!")
-    permutation_processor(permutation, required_substraction)
+    permutation_processor(permutation)
 
-def permutation_processor(permutation, required_substraction):
+def permutation_processor(permutation):
     for i in list(permutation):
         joined_word = "".join(i)
-        if required_substraction > 0:
-            required_word = joined_word[:-required_substraction]
-
-            check_words(required_word)
-        else:
-            check_words(joined_word)
+        check_words(joined_word)
 
 def check_words(word):
     if (language.check(word)):
