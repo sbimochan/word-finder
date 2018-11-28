@@ -20,3 +20,6 @@ A CLI application that finds word from given letters.
 
 ### Add size(Optional)
 `4`
+
+## Run tests
+pytest tests.py
