@@ -23,8 +23,17 @@ def get_inputs():
 
 def get_permutation(letter_list, length=None):
     permutation = permutations(letter_list, length)
-    return permutation_processor(permutation)
-
+    words = permutation_processor(permutation)
+    if len(words):
+        return jsonify({
+            "msg": "Here are the results. Bingo!",
+            "result": words
+        })
+    else:
+        return jsonify({
+            "msg": "Oops! No words found. You just broke the English language 😟",
+            "result":[]
+        })
 def permutation_processor(permutation):
     word_list = []
     for i in list(permutation):
@@ -32,17 +41,7 @@ def permutation_processor(permutation):
         word = check_words(joined_word)
         if word != None:
             word_list.append(word)
-            response = {
-                "msg": "Here are the results. Bingo!",
-                "result": word_list
-            }
-        else:
-            response = {
-                "msg": "Oops! No words found. You just broke the English language 😟",
-                "result": word_list
-            }
-
-    return jsonify(response)
+    return word_list
 
 def check_words(word):
     if (language.check(word)):
