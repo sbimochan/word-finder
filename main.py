@@ -3,25 +3,24 @@ from itertools import permutations
 
 language = enchant.Dict("en_US")
 
-def get_permutation(letter_list, beautiful_size):
-    permutation = permutations(letter_list)
-    required_substraction = len(letter_list) - beautiful_size
-    print("Here are the results. Bingo!")
-    permutation_processor(permutation, required_substraction)
+def get_permutation(letter_list, length=None):
+    permutation = permutations(letter_list, length)
+    words = permutation_processor(permutation)
+    display_words(words)
 
-def permutation_processor(permutation, required_substraction):
+def permutation_processor(permutation):
+    words = []
     for i in list(permutation):
         joined_word = "".join(i)
-        if required_substraction > 0:
-            required_word = joined_word[:-required_substraction]
+        word = check_words(joined_word)
+        if word != None:
+            words.append(word)
 
-            check_words(required_word)
-        else:
-            check_words(joined_word)
+    return words
 
 def check_words(word):
     if (language.check(word)):
-        print(word)
+        return word
 
 def get_letters():
     beautiful_letters = input("Gimme those letters without space. Press return when finished. \n")
@@ -41,6 +40,16 @@ def get_size(splitted_letters):
         beautiful_size = len(splitted_letters)
 
     return beautiful_size
+
+def display_words(words):
+    if len(words):
+        print("Here are the results. Bingo!")
+        for word in words:
+            print(word)
+        
+        return
+    
+    print("Oops! No words found. You just broke the English language 😟")
 
 def main():
     letters = get_letters()
