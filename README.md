@@ -1,7 +1,7 @@
 # Word Finder
 
-A CLI application that finds word from given letters.
-
+A CLI and API application that finds word from given letters.
+Front end can be found at: https://github.com/sbimochan/sbimochan.github.io/tree/master/word-finder
 ## Create virtual envirnment
 `$ virtualenv word-finder`
 
