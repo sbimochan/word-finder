@@ -1,6 +1,6 @@
+Click==7.0
 atomicwrites==1.2.1
 attrs==18.2.0
-Click==7.0
 cycler==0.10.0
 Flask==1.0.2
 Flask-Cors==3.0.7
