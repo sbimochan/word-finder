@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Word finder</title>
+		<meta name="description" content="Finds word by letters given by you" />
+		<meta name="author" content="Bimochan Shrestha" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link
+			href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+			rel="stylesheet"
+			type="text/css"
+    />
+    <script async defer src="https://buttons.github.io/buttons.js"></script>    
+		<link rel="stylesheet" href="css/normalize.css" />
+		<link rel="stylesheet" href="css/skeleton.css" />
+		<link rel="icon" type="image/png" href="images/favicon.png" />
+  </head>
+  
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="one-half column" style="margin-top: 15%">
+					<h4>Word Finder</h4>
+          <a class="github-button" href="https://github.com/sbimochan/word-finder" data-size="large" data-show-count="true"
+            aria-label="Star sbimochan/word-finder on GitHub">Star</a>
+					<form method="POST" id="wordFinderForm">
+						<div class="row">
+							<div class="six columns">
+								<label for="letters">Enter the letters without spaces.</label
+								><br />
+								<input
+									type="text"
+									placeholder="E.g: dlocu"
+									id="letters"
+								/><br />
+							</div>
+							<div class="six columns">
+								<label for="size"
+									>Enter the length of word you want. (Optional)</label
+								><br />
+								<input type="number" placeholder="E.g: 4" id="size" /><br />
+							</div>
+						</div>
+						<button type="submit" class="button-primary">Submit</button>
+					</form>
+				</div>
+				<div class="one-half column" style="margin-top: 20%">
+          <textarea
+          class="u-full-width"
+          placeholder="Your results will be displayed here."
+          id="resultArea"
+          style="height:200px"
+          ></textarea>
+          <h4 id="heading4"></h4>
+				</div>
+			</div>
+    </div>
+    
+    <script src="./js/wordFinder.js"></script>
+    
+	</body>
+</html>
