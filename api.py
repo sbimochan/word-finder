@@ -12,7 +12,7 @@ def handle_error(error):
     message = [str(x) for x in error.args]
     response = {
         'error': {
-            'message': message
+            'msg': message
         }
     }
 
@@ -31,6 +31,8 @@ def get_inputs():
     letters = letters.strip()
     size = data.get("size")
 
+    if len(letters) > 20:
+        raise Exception("Too long letters. Pheww...")
     if not size:
         size = len(letters)
     else:
