@@ -20,5 +20,5 @@ pyparsing==2.3.0
 pytest==4.0.1
 python-dateutil==2.7.5
 six==1.11.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 yapf==0.25.0
