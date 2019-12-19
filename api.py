@@ -70,6 +70,20 @@ def check_words(word):
     if language.check(word):
         return word
 
+
+@app.route('/boggle', methods=['POST'])
+def word_receiver():
+    data = request.get_json()
+    word = data.get("word")
+    checked_word = check_words(word)
+    if checked_word is not None:
+        return jsonify({
+            "isValidWord": True
+        })
+    else:
+        return jsonify({
+            "isValidWord": False
+        })
 # Uncomment if necessary
 if __name__ == "__main__":
     app.run()
