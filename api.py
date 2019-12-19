@@ -32,15 +32,17 @@ def permutation_processor(permutation):
         word = check_words(joined_word)
         if word != None:
             word_list.append(word)
-            response = {
-                "msg": "Here are the results. Bingo!",
-                "result": word_list
-            }
-        else:
-            response = {
-                "msg": "Oops! No words found. You just broke the English language 😟",
-                "result": word_list
-            }
+
+    if len(word_list) >0:
+        response = {
+            "msg": "Here are the results. Bingo!",
+            "result": word_list
+        }
+    else:
+        response = {
+            "msg": "Oops! No words found. You just broke the English language 😟",
+            "result": word_list
+        }
 
     return jsonify(response)
 
@@ -49,5 +51,5 @@ def check_words(word):
         return word
 
 # Uncomment if necessary
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    app.run()
