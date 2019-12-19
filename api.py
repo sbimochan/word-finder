@@ -71,5 +71,5 @@ def check_words(word):
         return word
 
 # Uncomment if necessary
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    app.run()
