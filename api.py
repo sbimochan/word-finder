@@ -71,7 +71,7 @@ def check_words(word):
         return word
 
 
-@app.route('/boggle', methods=['POST'])
+@app.route('/word-checker', methods=['POST'])
 def word_receiver():
     data = request.get_json()
     word = data.get("word")
