@@ -1,4 +1,4 @@
-const URL = "https://sbimochan.pythonanywhere.com";
+const URL = "http://43.204.227.86:8080";
 window.addEventListener('load', function () {
   function sendData(form) {
     var data = { letters: form.letters.value, size: form.size.value };
